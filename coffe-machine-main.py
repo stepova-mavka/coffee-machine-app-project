@@ -7,7 +7,7 @@ def print_Drink_List():
 
 
 def prepare_Drink(drink_id, sugar_amount):
-    print(f"Here is your {drink_list[int(drink_id)-1]} with {sugar_amount} sugar! Enjoy!")
+    print(f"Here is your {drink_list[int(drink_id)-1]} with {sugar_amount} sugar! Enjoy!\n\n")
 
 
 def add_Sugar():
@@ -16,18 +16,22 @@ def add_Sugar():
 
 
 def main():
+    
     userInput = int(input("Hello! Would you like a drink?\nInput [1] for YES, [0] for NO:\n"))
 
-    if userInput == 1:
+    while userInput:
         print_Drink_List()
-        while userInput:
-            selected_drink = input("Please, select a drink: ")
-            sugar_amount = add_Sugar()
-            prepare_Drink(selected_drink, sugar_amount)
+        selected_drink = input("Please, select a drink: ")
+        sugar_amount = add_Sugar()
+        prepare_Drink(selected_drink, sugar_amount)
+        userInput = int(input("Would you like another one?\nInput [1] for YES, [0] for NO:\n"))
+        if userInput == 0:
             break
-    else:
-        pass
-    return 0
+        else:
+            pass
+
+
+    return print("Have a great day!")
 
 
 main()
